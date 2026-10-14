@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-O4P6lAs36nuGu1Bc8dQcKiPQqcEqpt2mlC1bMLDBEeI='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' https: blob:; connect-src 'self' data: blob:; font-src 'self' data:; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Timely – Free Online Timer, Stopwatch &amp; Pomodoro Timer</title>
+<meta name="description" content="Timely is a free, minimal online timer, stopwatch and Pomodoro study timer. Fast, accessible, works offline, with themes and optional ambient focus music. No sign-up.">
+<meta name="keywords" content="timely, timely timer, online timer, stopwatch, pomodoro timer, study timer, focus timer, countdown timer, theshadowninja timer">
+<meta name="author" content="TheShadowNinjaGMD">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://theshadowninjagmd.github.io/Timely.app/">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="application-name" content="Timely">
+<meta name="apple-mobile-web-app-title" content="Timely">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Timely">
+<meta property="og:title" content="Timely – Free Online Timer, Stopwatch &amp; Pomodoro">
+<meta property="og:description" content="A minimal timer, stopwatch and Pomodoro study timer. Fast, accessible and free.">
+<meta property="og:url" content="https://theshadowninjagmd.github.io/Timely.app/">
+<meta property="og:image" content="https://theshadowninjagmd.github.io/Timely.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Timely timer app with a blue progress ring showing 25:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Timely – Free Online Timer, Stopwatch &amp; Pomodoro">
+<meta name="twitter:description" content="A minimal timer, stopwatch and Pomodoro study timer. Fast, accessible and free.">
+<meta name="twitter:image" content="https://theshadowninjagmd.github.io/Timely.app/assets/og-image.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<!-- Applies the saved theme before first paint so there is no flash. -->
+<script>
+try{var s=JSON.parse(localStorage.getItem("timely.v2")||"{}"),d=document.documentElement;
+if(s.scheme&&s.scheme!=="auto")d.dataset.scheme=s.scheme;
+if(s.theme)d.dataset.theme=s.theme;
+if(s.style==="standard")d.dataset.style="standard";
+if(s.theme==="custom"&&s.custom){d.style.setProperty("--accent",s.custom.accent);d.style.setProperty("--on-accent",s.custom.on)}}catch(e){}
+</script>
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Timely",
+  "alternateName": ["Timely Timer", "Timely.app"],
+  "url": "https://theshadowninjagmd.github.io/Timely.app/",
+  "description": "A free, minimal online timer, stopwatch and Pomodoro study timer with themes and optional ambient focus music.",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (web browser)",
+  "browserRequirements": "Requires JavaScript",
+  "image": "https://theshadowninjagmd.github.io/Timely.app/assets/og-image.png",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": {
+    "@type": "Person",
+    "name": "TheShadowNinjaGMD",
+    "url": "https://github.com/TheShadowNinjaGMD"
+  },
+  "sameAs": ["https://github.com/TheShadowNinjaGMD/Timely.app"]
+}
+</script>
+</head>
+
+<body>
+<!-- Icon sprite: original rounded outline glyphs in the style of SF Symbols -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="goo" x="-20%" y="-60%" width="140%" height="220%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10"/>
+    </filter>
+    <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 1.5M9.5 3h5"/></symbol>
+    <symbol id="i-stopwatch" viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5 15 10M10 3h4M18.5 6l1-1"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M4.5 7.4l2.1 1.2M17.4 15.4l2.1 1.2M4.5 16.6l2.1-1.2M17.4 8.6l2.1-1.2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M8 5.6c0-1 1.1-1.6 1.9-1.1l9.1 6.4c.7.5.7 1.7 0 2.2l-9.1 6.4c-.8.5-1.9-.1-1.9-1.1z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="4.5" width="3.8" height="15" rx="1.4" fill="currentColor" stroke="none"/><rect x="13.7" y="4.5" width="3.8" height="15" rx="1.4" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.3-5.4M4.5 4.5v4h4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12h12"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 20.5V4.5M6 5h11l-2.5 3.5L17 12H6"/></symbol>
+    <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4.5 9.5h3l4.5-4v13l-4.5-4h-3zM15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/></symbol>
+    <symbol id="i-speaker-off" viewBox="0 0 24 24"><path d="M4.5 9.5h3l4.5-4v13l-4.5-4h-3zM16 9.5l4.5 5M20.5 9.5l-4.5 5"/></symbol>
+    <symbol id="i-xmark" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Skip to timer</a>
+
+<!-- #stage is the Liquid Glass root (opt-in, see Settings > Experimental). -->
+<div id="stage">
+  <div class="backdrop" aria-hidden="true"></div>
+
+  <header class="bar">
+    <h1 class="brand">Timely</h1>
+
+    <div class="seg glass" role="tablist" aria-label="Mode">
+      <span class="seg-goo" aria-hidden="true"><i class="blob"></i><i class="blob lag"></i></span>
+      <span class="seg-lens" aria-hidden="true"></span>
+      <button class="seg-btn" role="tab" id="tab-timer" aria-selected="true" aria-controls="timerView" data-mode="timer" type="button">
+        <svg class="ic" aria-hidden="true"><use href="#i-timer"/></svg><span>Timer</span>
+      </button>
+      <button class="seg-btn" role="tab" id="tab-stopwatch" aria-selected="false" aria-controls="stopwatchView" tabindex="-1" data-mode="stopwatch" type="button">
+        <svg class="ic" aria-hidden="true"><use href="#i-stopwatch"/></svg><span>Stopwatch</span>
+      </button>
+    </div>
+
+    <div class="bar-actions">
+      <button class="icon-btn glass" id="muteBtn" type="button" aria-pressed="false" aria-label="Sound effects">
+        <svg class="ic" aria-hidden="true"><use id="muteUse" href="#i-speaker"/></svg>
+      </button>
+      <button class="icon-btn glass" id="settingsBtn" type="button" aria-haspopup="dialog" aria-label="Settings">
+        <svg class="ic" aria-hidden="true"><use href="#i-gear"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <p class="study-chip glass" id="studyChip" hidden></p>
+
+    <div class="ring" id="ring">
+      <svg class="ring-svg" viewBox="0 0 340 340" aria-hidden="true" focusable="false">
+        <circle class="ring-bg" cx="170" cy="170" r="150"/>
+        <circle class="ring-fg" id="ringFg" cx="170" cy="170" r="150" pathLength="1"/>
+      </svg>
+      <div class="readout">
+        <section id="timerView" role="tabpanel" aria-labelledby="tab-timer">
+          <label class="sr" for="timeInput">Timer length, minutes and seconds</label>
+          <input id="timeInput" class="time" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" maxlength="8" value="5:00">
+        </section>
+        <section id="stopwatchView" role="tabpanel" aria-labelledby="tab-stopwatch" hidden>
+          <div class="time" id="swTime" role="timer" aria-label="Stopwatch">0:00<span class="sw-cs" id="swCs">.00</span></div>
+        </section>
+      </div>
+    </div>
+
+    <div class="below">
+      <ul class="presets" id="presets" aria-label="Quick add"></ul>
+      <ol class="lap-list" id="lapList" aria-label="Laps" hidden></ol>
+    </div>
+  </main>
+
+  <div class="dock glass" id="dock">
+    <button class="dock-btn" id="resetBtn" type="button" aria-label="Reset">
+      <svg class="ic" aria-hidden="true"><use href="#i-reset"/></svg>
+    </button>
+    <button class="dock-btn primary" id="playBtn" type="button" aria-label="Start timer">
+      <svg class="ic" aria-hidden="true"><use id="playUse" href="#i-play"/></svg>
+    </button>
+    <button class="dock-btn" id="lapBtn" type="button" aria-label="Record lap" disabled hidden>
+      <svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="toast glass" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<div class="sr" id="announce" role="status" aria-live="polite"></div>
+
+<!-- Settings sheet (native dialog: focus trap, Esc to close, inert background) -->
+<dialog id="settings" class="sheet" aria-labelledby="settingsTitle">
+  <div class="sheet-inner">
+    <header class="sheet-head">
+      <h2 id="settingsTitle">Settings</h2>
+      <button class="icon-btn" id="settingsClose" type="button" aria-label="Close settings">
+        <svg class="ic" aria-hidden="true"><use href="#i-xmark"/></svg>
+      </button>
+    </header>
+
+    <div class="sheet-body">
+      <fieldset class="group">
+        <legend>Appearance</legend>
+        <div class="seg seg-wide" role="radiogroup" aria-label="Color scheme">
+          <label><input type="radio" name="scheme" value="auto" checked><span>Auto</span></label>
+          <label><input type="radio" name="scheme" value="light"><span>Light</span></label>
+          <label><input type="radio" name="scheme" value="dark"><span>Dark</span></label>
+        </div>
+        <div class="card spaced">
+          <label class="row"><span class="row-text"><strong>Liquid Glass style</strong><small>Draggable, gooey glass thumb on the Timer / Stopwatch switcher</small></span>
+            <input class="switch" type="checkbox" role="switch" id="liquidStyle" checked></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Accent color</legend>
+        <div class="swatches" id="swatches" role="radiogroup" aria-label="Accent color"></div>
+
+        <div class="custom" id="customBox" hidden>
+          <div class="field"><label for="hue">Hue</label><input id="hue" type="range" min="0" max="360" value="211"></div>
+          <div class="field"><label for="sat">Saturation</label><input id="sat" type="range" min="0" max="100" value="96"></div>
+          <div class="field"><label for="val">Brightness</label><input id="val" type="range" min="0" max="100" value="100"></div>
+          <dl class="readouts">
+            <div><dt>HEX</dt><dd id="o-hex"></dd></div>
+            <div><dt>RGB</dt><dd id="o-rgb"></dd></div>
+            <div><dt>HSL</dt><dd id="o-hsl"></dd></div>
+            <div><dt>HSV</dt><dd id="o-hsv"></dd></div>
+            <div><dt>CMYK</dt><dd id="o-cmyk"></dd></div>
+          </dl>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Sound</legend>
+        <div class="card">
+        <label class="row"><span class="row-text"><strong>Sound effects</strong><small>Clicks and the completion chime</small></span>
+          <input class="switch" type="checkbox" role="switch" id="soundToggle" checked></label>
+        <div class="field"><label for="volSlider">Volume <output id="volText" for="volSlider">80%</output></label>
+          <input id="volSlider" type="range" min="0" max="100" value="80"></div>
+        <label class="row"><span class="row-text"><strong>Ambient music</strong><small>Downloads only when you turn it on</small></span>
+          <input class="switch" type="checkbox" role="switch" id="musicToggle"></label>
+        <div class="field" id="musicBox" hidden><label for="musicSlider">Music volume <output id="musicText" for="musicSlider">40%</output></label>
+          <input id="musicSlider" type="range" min="0" max="100" value="40"></div>
+        <div class="field">
+          <label for="audioUrlInput">Your own audio (https link)</label>
+          <div class="inline">
+            <input id="audioUrlInput" type="url" inputmode="url" placeholder="https://example.com/audio.mp3" autocomplete="off">
+            <button class="btn" id="audioPlay" type="button">Play</button>
+          </div>
+          <p class="hint" id="audioUrlStatus" role="status"></p>
+        </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Study mode</legend>
+        <div class="card">
+        <label class="row"><span class="row-text"><strong>Pomodoro</strong><small>25 minutes focus, 5 minutes break</small></span>
+          <input class="switch" type="checkbox" role="switch" id="studyToggle"></label>
+        <label class="row"><span class="row-text"><strong>Start breaks automatically</strong></span>
+          <input class="switch" type="checkbox" role="switch" id="autoBreak" checked></label>
+        <label class="row"><span class="row-text"><strong>Play music while studying</strong><small>Needs ambient music turned on</small></span>
+          <input class="switch" type="checkbox" role="switch" id="studyMusicToggle"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Experimental</legend>
+        <div class="card">
+        <label class="row"><span class="row-text"><strong>Liquid Glass refraction</strong><small>WebGL glass on the control dock. Uses more battery.</small></span>
+          <input class="switch" type="checkbox" role="switch" id="liquidToggle"></label>
+        </div>
+      </fieldset>
+
+      <p class="hint keys"><kbd>Space</kbd> start or pause &nbsp; <kbd>R</kbd> reset &nbsp; <kbd>L</kbd> lap &nbsp; <kbd>M</kbd> switch mode</p>
+    </div>
+
+    <footer class="sheet-foot">
+      <button class="btn" id="resetSettings" type="button">Reset to defaults</button>
+      <button class="btn primary" id="settingsDone" type="button">Done</button>
+    </footer>
+  </div>
+</dialog>
+
+<footer class="site-foot">
+  <p>Timely is a free online timer, stopwatch and Pomodoro study timer by <a href="https://github.com/TheShadowNinjaGMD">TheShadowNinjaGMD</a>. <a href="https://github.com/TheShadowNinjaGMD/Timely.app">Source on GitHub</a>.</p>
+</footer>
+
+<noscript><p class="noscript">Timely needs JavaScript to run the timer. Please enable JavaScript and reload.</p></noscript>
+
+<script src="script.js" defer></script>
+</body>
+</html>

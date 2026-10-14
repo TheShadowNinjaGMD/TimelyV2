@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theshadowninjagmd.github.io/Timely.app/sitemap.xml
