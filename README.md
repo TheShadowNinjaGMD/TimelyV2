@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/favicon.ico" width="96" height="96" alt="Timely app icon">
+<img src="favicon.svg" width="96" height="96" alt="Timely app icon">
 
 # Timely
 
