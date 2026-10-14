@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="assets/icon-192.png" width="96" height="96" alt="Timely app icon">
+<img src="assets/favicon.ico" width="96" height="96" alt="Timely app icon">
 
 # Timely
 
 **A free, minimal timer, stopwatch and Pomodoro study timer for the web.**<br>
 Fast, accessible and installable. No sign-up, no tracking, no dependencies.
 
-[**Open Timely →**](https://theshadowninjagmd.github.io/Timely.app/)
+[**Open Timely →**](https://theshadowninjagmd.github.io/TimelyV2.app/)
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Ftheshadowninjagmd.github.io%2FTimely.app%2F&label=live)](https://theshadowninjagmd.github.io/Timely.app/)
 [![License](https://img.shields.io/github/license/TheShadowNinjaGMD/Timely.app)](LICENSE)
